@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+{% load static %}
+
+<html lang="en">
+<head>
+    <style>
+        html {
+            display: flex;
+            flex: 1;
+            height: 100%;
+        }
+
+        body {
+            display: inherit;
+            flex: 1;
+            background-color: white;
+            align-items: center;
+            justify-content: center;
+            padding: 200px;
+
+        }
+
+        .wisdom_container {
+            display: inherit;
+            flex-direction: column;
+            margin: 15px;
+        }
+
+        .words_of_wisdom {
+            font-size: 42px;
+            color: black;
+        }
+
+        .wisdom_origin {
+            display: flex;
+            flex: 1;
+            color: gray;
+            font-size: 16px;
+            align-self: flex-end;
+            justify-content: center;
+            flex-direction: row;
+            max-width: 50%;
+            margin-left: 100px;
+        }
+
+        .wisdom {
+            margin-left: 5px;
+        }
+
+        .flip {
+            transform: scaleX(-1);
+        }
+
+    </style>
+    <title>the fact of being based on sensible or wise thinking</title>
+</head>
+<body>
+
+<img src="{% static "image.png" %}" alt="nothing" height="100%">
+<div class="wisdom_container">
+
+    <div class="words_of_wisdom">{{ random_wisdom.words_of_wisdom }}</div>
+
+    <div class="wisdom_origin">
+        <div>-</div>
+        <div class="wisdom">{{ random_wisdom.wisdom_origin }}</div>
+    </div>
+
+</div>
+<img class="flip" src="{% static "image.png" %}" alt="nothing" height="100%">
+</body>
+</html>

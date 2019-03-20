@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from .models import Wisdom
 
@@ -11,5 +11,5 @@ def random_wisdom(request):
 def wisdom_by_id(request, wisdom_id):
     wisdom = Wisdom.objects.filter(id=wisdom_id).first()
     if not wisdom:
-        return random_wisdom(request)
+        return redirect('/')
     return render(request, 'home.html', {'wisdom': wisdom})

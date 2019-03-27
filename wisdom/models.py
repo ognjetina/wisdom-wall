@@ -8,4 +8,4 @@ class Wisdom(models.Model):
     is_public = models.BooleanField(default=False)
 
     def __str__(self):
-        return 'Wisdom: ' + self.words_of_wisdom
+        return 'Wisdom: ' + self.words_of_wisdom + 'Public:' + self.is_public.__str__()

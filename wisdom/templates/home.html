@@ -77,13 +77,17 @@
     <meta http-equiv="refresh" content="480">
     <title>the fact of being based on sensible or wise thinking</title>
 
+    <meta property="og:site_name" content="Wisdomi">
     <meta property="og:title" content="{{ wisdom.words_of_wisdom }}"/>
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://wisdom-wall.herokuapp.com/static/image.png"/>
     <meta property="og:description" content="{{ wisdom.wisdom_origin }}"/>
-    <meta property="og:image" content="https://codecentric.ba/wp-content/uploads/2017/06/CC_RGB_onWhite.png"/>
-    <meta property="og:type" content="website"/>
+
+
 </head>
 <body>
 <div class="main_container">
+    <img src="{% static "image.png" %}" alt="nothing">
     <svg id="svg" version="1.1" width="400" height="700" viewBox="0 0 400 700" xmlns="http://www.w3.org/2000/svg"
          xmlns:xlink="http://www.w3.org/1999/xlink">
         <g id="svgg">

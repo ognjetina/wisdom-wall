@@ -25,3 +25,10 @@ def post_new_wisdom(request):
     else:
         form = WisdomForm()
     return render(request, 'addWisdom.html', {'form': form})
+
+
+def wisdoms(request):
+    wisdoms = Wisdom.objects.all()
+    if not wisdoms:
+        return redirect('/')
+    return render(request, 'wisdoms.html', {'wisdoms': wisdoms})

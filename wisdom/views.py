@@ -28,7 +28,7 @@ def post_new_wisdom(request):
 
 
 def wisdoms(request):
-    wisdoms = Wisdom.objects.filter(is_public=True)
+    wisdoms = Wisdom.objects.filter(is_public=True).order_by('-wisdom_occurrence_time')
     if not wisdoms:
         return redirect('/')
     return render(request, 'wisdoms.html', {'wisdoms': wisdoms})

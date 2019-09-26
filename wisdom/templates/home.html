@@ -87,7 +87,15 @@
         }
 
         .followers_number{
-            font-size: 30px;
+            font-size: 40px;
+        }
+
+        .red {
+            color: red;
+        }
+
+        .green{
+            color:green;
         }
 
     </style>
@@ -107,13 +115,21 @@
     <div class="left_profile">
         <img src="https://pbs.twimg.com/profile_images/1168217928254337024/Z9lP-J_F_400x400.jpg" height="80">
         <div>FOLLOWERS:</div>
-        <div id="p1" class="followers_number">{{ enso_followers }}</div>
+        {%  if enso_followers > bruno_followers %}
+        <div id="p1" class="followers_number green">{{ enso_followers }}</div>
+        {% else %}
+        <div id="p1" class="followers_number red">{{ enso_followers }}</div>
+        {% endif %}
     </div>
     <img src=" https://cdn1.thr.com/sites/default/files/imagecache/landscape_928x523/2013/07/twitter_battle_a_l.jpg" height="80" alt="war">
     <div class="right_profile">
         <img src="https://pbs.twimg.com/profile_images/1091754860926640129/p-HzytCs_400x400.jpg" height="80">
         <div>FOLLOWERS:</div>
-        <div id="p2" class="followers_number">{{ bruno_followers }}</div>
+        {%  if bruno_followers > enso_followers %}
+        <div id="p2" class="followers_number green">{{ bruno_followers }}</div>
+        {% else %}
+        <div id="p2" class="followers_number red">{{ bruno_followers }}</div>
+        {% endif %}
     </div>
 
 </div>

@@ -107,13 +107,13 @@
     <div class="left_profile">
         <img src="https://pbs.twimg.com/profile_images/1168217928254337024/Z9lP-J_F_400x400.jpg" height="80">
         <div>FOLLOWERS:</div>
-        <div id="p1" class="followers_number">0</div>
+        <div id="p1" class="followers_number">{{ enso_followers }}</div>
     </div>
     <img src=" https://cdn1.thr.com/sites/default/files/imagecache/landscape_928x523/2013/07/twitter_battle_a_l.jpg" height="80" alt="war">
     <div class="right_profile">
         <img src="https://pbs.twimg.com/profile_images/1091754860926640129/p-HzytCs_400x400.jpg" height="80">
         <div>FOLLOWERS:</div>
-        <div id="p2" class="followers_number">0</div>
+        <div id="p2" class="followers_number">{{ bruno_followers }}</div>
     </div>
 
 </div>
@@ -151,35 +151,4 @@
 </div>
 <a href="https://wisdom-wall.herokuapp.com/wisdom/{{ wisdom.id }}/">https://wisdom-wall.herokuapp.com/wisdom/{{ wisdom.id }}/</a>
 </body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script>
-    function grepData() {
-
-        $.ajax({
-            url: "https://cdn.syndication.twimg.com/widgets/followbutton/info.json?screen_names=mrFunkyWisdom",
-            dataType: 'jsonp',
-            crossDomain: true
-        }).done(function (data) {
-            $("#p1").text(data[0]['followers_count']);
-        });
-
-
-        $.ajax({
-            url: "https://cdn.syndication.twimg.com/widgets/followbutton/info.json?screen_names=brunoraljic",
-            dataType: 'jsonp',
-            crossDomain: true
-        }).done(function (data) {
-            $("#p2").text(data[0]['followers_count']);
-        });
-
-
-        setTimeout(function () {
-            grepData();
-        }, 15000);
-    };
-    $(document).ready(function () {
-        grepData();
-    });
-
-</script>
 </html>

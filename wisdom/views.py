@@ -11,7 +11,7 @@ def random_wisdom(request):
                         'o8qR72i1tiampZnWtlZOuZq97tyEBynNk75U9BhH5X2r3')
 
     bruno = client.api.users.show.get(screen_name='brunoraljic')
-    enso = client.api.users.show.get(screen_name='mrFunkyWisdom')
+    enso = client.api.users.show.get(screen_name='EnsarBavrk')
     some_random_wisdom = Wisdom.objects.filter(is_public=True).order_by('?').first()
     return render(request, 'home.html', {'wisdom': some_random_wisdom,"bruno_followers":bruno.data['followers_count'],"enso_followers":enso.data['followers_count']})
 

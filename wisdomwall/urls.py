@@ -15,7 +15,6 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-from wisdom.views import handle_404
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -23,4 +22,4 @@ urlpatterns = [
     path('war/', include('twitterwar.urls'))
 ]
 
-handler404 = handle_404
+handler404 = 'wisdom.views.view_404'

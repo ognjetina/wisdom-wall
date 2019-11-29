@@ -34,5 +34,5 @@ def wisdoms(request):
     return render(request, 'wisdoms.html', {'wisdoms': wisdoms})
 
 
-def handle_404(request, *args, **argv):
+def view_404(request, *args, **argv):
     return redirect('/')

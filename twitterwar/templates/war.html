@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+{% load static %}
+
+<html lang="en">
+<head>
+    <style>
+        html {
+            display: flex;
+            flex: 1;
+            height: 100%;
+        }
+
+        body {
+            display: inherit;
+            flex: 1;
+            background-color: white;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            flex-direction: column;
+        }
+
+        a:link {
+            color: gray;
+        }
+
+        a:visited {
+            color: gray;
+        }
+
+        a:hover {
+            color: blue;
+        }
+
+        .twitter_war {
+            display: inherit;
+            align-self: stretch;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+        }
+
+        .left_profile {
+            margin-right: 30px;
+            text-align: center;
+        }
+
+        .right_profile {
+            margin-left: 30px;
+            text-align: center;
+        }
+
+        .followers_number {
+            font-size: 40px;
+        }
+
+        .red {
+            color: red;
+        }
+
+        .green {
+            color: green;
+        }
+
+    </style>
+    <meta http-equiv="refresh" content="480">
+    <title>the fact of being based on sensible or wise thinking</title>
+
+    <meta property="og:site_name" content="twitter war">
+    <meta property="og:title" content="{{ wisdom.words_of_wisdom }}"/>
+    <meta property="og:type" content="article">
+    <meta property="og:image"
+          content="https://cdn1.thr.com/sites/default/files/imagecache/landscape_928x523/2013/07/twitter_battle_a_l.jpg"/>
+    <meta property="og:description" content="Bruno: {{ bruno_followers }} vs Enso: {{ enso_followers }}"/>
+
+
+</head>
+<body>
+<div class="twitter_war">
+    <div class="left_profile">
+        <img src="{{ enso_image }}" height="120">
+        <div>FOLLOWERS:</div>
+        {% if enso_followers > bruno_followers %}
+            <div id="p1" class="followers_number green">{{ enso_followers }}</div>
+        {% else %}
+            <div id="p1" class="followers_number red">{{ enso_followers }}</div>
+        {% endif %}
+    </div>
+    <img src="https://wisdom-wall.herokuapp.com/static/vs.png" alt="">
+    <div class="right_profile">
+        <img src="{{ bruno_image }}" height="120">
+        <div>FOLLOWERS:</div>
+        {% if bruno_followers > enso_followers %}
+            <div id="p2" class="followers_number green">{{ bruno_followers }}</div>
+        {% else %}
+            <div id="p2" class="followers_number red">{{ bruno_followers }}</div>
+        {% endif %}
+    </div>
+
+</div>
+</body>
+</html>

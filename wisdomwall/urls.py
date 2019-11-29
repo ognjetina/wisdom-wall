@@ -19,7 +19,8 @@ from wisdom.views import handle_404
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('wisdom.urls'))
+    path('', include('wisdom.urls')),
+    path('war/', include('twitterwar.urls'))
 ]
 
 handler404 = handle_404

@@ -37,16 +37,8 @@
             flex: 1;
             padding-top: 30px;
             background-color: white;
-            align-items: flex-start;
-            justify-content: center;
-        }
-
-        .twitter_war {
-            display: inherit;
-            align-self: stretch;
             align-items: center;
             justify-content: center;
-            flex:1;
         }
 
         .wisdom_container {
@@ -76,28 +68,6 @@
         .wisdom {
             margin-left: 5px;
         }
-
-        .left_profile{
-            margin-right: 30px;
-            text-align: center;
-        }
-        .right_profile{
-            margin-left: 30px;
-            text-align: center;
-        }
-
-        .followers_number{
-            font-size: 40px;
-        }
-
-        .red {
-            color: red;
-        }
-
-        .green{
-            color:green;
-        }
-
     </style>
     <meta http-equiv="refresh" content="480">
     <title>the fact of being based on sensible or wise thinking</title>
@@ -111,28 +81,6 @@
 
 </head>
 <body>
-<div class="twitter_war">
-    <div class="left_profile">
-        <img src="https://pbs.twimg.com/profile_images/1191848013637005312/0MY2_W02_400x400.jpg" height="80">
-        <div>FOLLOWERS:</div>
-        {%  if enso_followers > bruno_followers %}
-        <div id="p1" class="followers_number green">{{ enso_followers }}</div>
-        {% else %}
-        <div id="p1" class="followers_number red">{{ enso_followers }}</div>
-        {% endif %}
-    </div>
-    <img src=" https://cdn1.thr.com/sites/default/files/imagecache/landscape_928x523/2013/07/twitter_battle_a_l.jpg" height="80" alt="war">
-    <div class="right_profile">
-        <img src="https://pbs.twimg.com/profile_images/1091754860926640129/p-HzytCs_400x400.jpg" height="80">
-        <div>FOLLOWERS:</div>
-        {%  if bruno_followers > enso_followers %}
-        <div id="p2" class="followers_number green">{{ bruno_followers }}</div>
-        {% else %}
-        <div id="p2" class="followers_number red">{{ bruno_followers }}</div>
-        {% endif %}
-    </div>
-
-</div>
 <div class="main_container">
     <svg id="svg" version="1.1" width="100" height="125" viewBox="0 0 400 700" xmlns="http://www.w3.org/2000/svg"
          xmlns:xlink="http://www.w3.org/1999/xlink">

@@ -3,6 +3,16 @@
 
 <html lang="en">
 <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            window.setInterval(function () {
+                $.get("http://wisdom-wall.herokuapp.com/toxicity/", function (data, status) {
+                    $('div.toxicity_level').text(data.toxicity);
+                });
+            }, 5000);
+        });
+    </script>
     <style>
         html {
             display: flex;
@@ -68,9 +78,18 @@
         .wisdom {
             margin-left: 5px;
         }
+
+        .toxicity {
+            color: grey;
+        }
+
+        .toxicity_level {
+            color: black;
+            font-size: 22px;
+        }
     </style>
 
-    <meta http-equiv = "refresh" content = "180; url = https://wisdom-wall.herokuapp.com/war/" />
+    <meta http-equiv="refresh" content="180; url = https://wisdom-wall.herokuapp.com/war/"/>
 
     <title>the fact of being based on sensible or wise thinking</title>
 
@@ -83,6 +102,8 @@
 
 </head>
 <body>
+<div class="toxicity">Level of toxicity</div>
+<div class="toxicity_level" id="toxic_id">0</div>
 <div class="main_container">
     <svg id="svg" version="1.1" width="100" height="125" viewBox="0 0 400 700" xmlns="http://www.w3.org/2000/svg"
          xmlns:xlink="http://www.w3.org/1999/xlink">

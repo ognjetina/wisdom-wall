@@ -7,7 +7,7 @@
     <script type="text/javascript">
         $(document).ready(function () {
             window.setInterval(function () {
-                $.get("http://wisdom-wall.herokuapp.com/toxicity/", function (data, status) {
+                $.get("https://wisdom-wall.herokuapp.com/toxicity/", function (data, status) {
                     $('div.toxicity_level').text(data.toxicity);
                 });
             }, 5000);

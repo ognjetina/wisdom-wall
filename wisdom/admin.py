@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Wisdom
+from .models import Wisdom, Toxicity
 
 
 class WisdomAdmin(admin.ModelAdmin):
@@ -8,3 +8,4 @@ class WisdomAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Wisdom, WisdomAdmin)
+admin.site.register(Toxicity)

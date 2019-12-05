@@ -1,6 +1,9 @@
 from django.shortcuts import render, redirect
-from .models import Wisdom
+from .models import Wisdom, Toxicity
 from .forms import WisdomForm
+from django.http import JsonResponse
+import datetime
+from django.views.decorators.csrf import csrf_exempt
 
 
 def random_wisdom(request):
@@ -32,6 +35,31 @@ def wisdoms(request):
     if not wisdoms:
         return redirect('/')
     return render(request, 'wisdoms.html', {'wisdoms': wisdoms})
+
+@csrf_exempt
+def toxicity(request):
+    if request.method == "POST":
+        print('here')
+        # increment toxicity lvl
+        toxicity = Toxicity.objects.filter(created=datetime.date.today()).first()
+        toxicity.level = toxicity.level + 1
+        toxicity.save()
+        if toxicity:
+            return JsonResponse({'toxicity': toxicity.level})
+        else:
+            new_toxicity = Toxicity()
+            new_toxicity.save()
+            return JsonResponse({'toxicity': new_toxicity.level})
+
+    elif request.method == "GET":
+        # get toxicity lvl
+        toxicity = Toxicity.objects.filter(created=datetime.date.today()).first()
+        if toxicity:
+            return JsonResponse({'toxicity': toxicity.level})
+        else:
+            new_toxicity = Toxicity()
+            new_toxicity.save()
+            return JsonResponse({'toxicity': new_toxicity.level})
 
 
 def view_404(request, *args, **argv):

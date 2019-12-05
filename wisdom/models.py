@@ -6,3 +6,8 @@ class Wisdom(models.Model):
     wisdom_origin = models.CharField(max_length=120)
     wisdom_occurrence_time = models.DateField(auto_now_add=True, blank=True)
     is_public = models.BooleanField(default=False)
+
+
+class Toxicity(models.Model):
+    created = models.DateField(auto_now_add=True)
+    level = models.IntegerField(default=0)

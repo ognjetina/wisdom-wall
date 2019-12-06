@@ -9,6 +9,7 @@
             window.setInterval(function () {
                 $.get("https://wisdom-wall.herokuapp.com/toxicity/", function (data, status) {
                     $('div.toxicity_level').text(data.toxicity);
+                    $('div.toxicity_level').css({'font-size': (data.toxicity*3)+'px'});
                 });
             }, 5000);
         });

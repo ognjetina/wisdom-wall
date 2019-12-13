@@ -98,22 +98,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'handlers': {
-        'console': {
-            'class': 'logging.StreamHandler',
-        },
-    },
-    'loggers': {
-        'django': {
-            'handlers': ['console'],
-             'level': os.getenv('DJANGO_LOG_LEVEL', 'DEBUG'),
-        },
-    },
-}
-
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
 
@@ -127,11 +111,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
-
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
 
 django_heroku.settings(locals())

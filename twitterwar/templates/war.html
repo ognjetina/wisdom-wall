@@ -40,62 +40,121 @@
             flex: 1;
         }
 
-        .left_profile {
-            margin-right: 30px;
-            text-align: center;
+        .twitter_account {
+            display: flex;
+            flex: 1;
+            justify-content: center;
+            height: 90px;
+            width: 600px;
         }
 
-        .right_profile {
-            margin-left: 30px;
-            text-align: center;
+        .twitter_account_first_place {
+            display: flex;
+            flex: 1;
+            justify-content: center;
+            height: 120px;
+            width: 700px;
         }
 
-        .followers_number {
-            font-size: 40px;
+        .twitter_account_image {
+            display: flex;
+            flex: 1;
+            justify-content: flex-end;
+            align-items: center;
+            margin-right: 20px;
         }
 
-        .red {
-            color: red;
+        .twitter_account_name {
+            display: flex;
+            flex: 1;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            color: #0a001f;
         }
 
-        .green {
-            color: green;
+        .twitter_account_name_first_place {
+            display: flex;
+            flex: 1;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: bold;
+            color: #0a001f;
+        }
+
+        .twitter_account_followers_count {
+            display: flex;
+            flex: 1;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: darkblue;
+        }
+
+        .twitter_account_followers_count_first_place {
+            display: flex;
+            flex: 1;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            font-weight: bold;
+            color: firebrick;
+        }
+
+        .list {
+            display: flex;
+            align-items: center;
         }
 
     </style>
-    <meta http-equiv = "refresh" content = "180; url = https://wisdom-wall.herokuapp.com/" />
+    <meta http-equiv="refresh" content="180; url = https://wisdom-wall.herokuapp.com/"/>
     <title>the fact of being based on sensible or wise thinking</title>
 
     <meta property="og:site_name" content="twitter war">
-    <meta property="og:title" content="{{ wisdom.words_of_wisdom }}"/>
+    <meta property="og:title" content="twitter leaderboard"/>
     <meta property="og:type" content="article">
-    <meta property="og:image"
-          content="https://cdn1.thr.com/sites/default/files/imagecache/landscape_928x523/2013/07/twitter_battle_a_l.jpg"/>
-    <meta property="og:description" content="Bruno: {{ bruno_followers }} vs Enso: {{ enso_followers }}"/>
-
 
 </head>
 <body>
 <div class="twitter_war">
-    <div class="left_profile">
-        <img src="{{ enso_image }}" height="120">
-        <div>FOLLOWERS:</div>
-        {% if enso_followers > bruno_followers %}
-            <div id="p1" class="followers_number green">{{ enso_followers }}</div>
-        {% else %}
-            <div id="p1" class="followers_number red">{{ enso_followers }}</div>
-        {% endif %}
-    </div>
-    <img src="https://wisdom-wall.herokuapp.com/static/vs.png" alt="">
-    <div class="right_profile">
-        <img src="{{ bruno_image }}" height="120">
-        <div>FOLLOWERS:</div>
-        {% if bruno_followers > enso_followers %}
-            <div id="p2" class="followers_number green">{{ bruno_followers }}</div>
-        {% else %}
-            <div id="p2" class="followers_number red">{{ bruno_followers }}</div>
-        {% endif %}
-    </div>
+
+    <ul>
+        {% for twitter_account in twitter_accounts %}
+            <li class="list" style="list-style-type:none">
+
+
+                {% if forloop.first %}
+                    <div class="twitter_account_first_place">
+                        <div class="twitter_account_image">
+                            <img src={{ twitter_account.profile_image_url_https }} alt="">
+                        </div>
+                        <div class="twitter_account_name_first_place">
+                            {{ twitter_account.name }}
+                        </div>
+                        <div class="twitter_account_followers_count_first_place">
+                            {{ twitter_account.followers_count }}
+                        </div>
+                    </div>
+                {% else %}
+
+                    <div class="twitter_account">
+                        <div class="twitter_account_image">
+                            <img src={{ twitter_account.profile_image_url_https }} alt="">
+                        </div>
+                        <div class="twitter_account_name">
+                            {{ twitter_account.name }}
+                        </div>
+                        <div class="twitter_account_followers_count">
+                            {{ twitter_account.followers_count }}
+                        </div>
+                    </div>
+                {% endif %}
+
+
+            </li>
+        {% endfor %}
+    </ul>
 
 </div>
 </body>

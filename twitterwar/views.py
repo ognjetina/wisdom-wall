@@ -11,7 +11,7 @@ def twitter_war(request):
     twitter_names = ['brunoraljic', 'EnsarBavrk', "Ognjetina", "sdejan89", "_rstokic_",
                      "milansusnjar_", "KnightOfRen_", "A_Popadic", "milos_brdar", "borisjanjanin",
                      "deni_n88", "djovic82", "GJungic", "Gonguli88", "buconis", "ozegster", "mladen_vasic",
-                     "Nemanjas_Vasic", "novislavs", "stek993", "Tin_M_", "stasa_m"]
+                     "nemanjavasa", "novislavs", "stek993", "Tin_M_", "stasa_m"]
 
     twitter_accounts = []
 
